@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Crop images
+{% endblock %}
+
+{% block content %}
+    <h1>Crop images</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="image">Select an image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+        <button type="submit">Upload</button>
+
+    </form>
+
+    <div>
+        {% if size %}
+            <p id="size">
+                Image successfully uploaded with size: {{ size[0] }}px x {{ size[1]}}px
+            </p>
+        {% endif %}
+    </div>
+
+    <div class="uploaded-image">
+        {% if image_url %}
+            <h2>Uploaded image:</h2>
+            <img src="{{ image_url }}" alt="Uploaded image">
+
+        {% endif %}
+    </div>
+
+
+
+
+
+
+
+
+{% endblock %}
